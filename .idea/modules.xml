@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\Alptekin\AndroidStudioProjects\Bilcon\AndroidStudioProjects.iml" filepath="C:\Users\Alptekin\AndroidStudioProjects\Bilcon\AndroidStudioProjects.iml" />
+      <module fileurl="file://C:/Users/Alptekin/AndroidStudioProjects/Bilcon/AndroidStudioProjects.iml" filepath="C:/Users/Alptekin/AndroidStudioProjects/Bilcon/AndroidStudioProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Bilcon.iml" filepath="$PROJECT_DIR$/.idea/Bilcon.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bilcon.iml" filepath="$PROJECT_DIR$/Bilcon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Alptekin\AndroidStudioProjects\Bilcon\app\app.iml" filepath="C:\Users\Alptekin\AndroidStudioProjects\Bilcon\app\app.iml" />
+      <module fileurl="file://C:/Users/Alptekin/AndroidStudioProjects/Bilcon/app/app.iml" filepath="C:/Users/Alptekin/AndroidStudioProjects/Bilcon/app/app.iml" />
     </modules>
   </component>
 </project>
