@@ -20,16 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Announcements" />
-        <activity
-            android:name=".DetailActivity"
-            android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".NewPost" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
-        <activity android:name=".Complaints" />
-        <activity android:name=".FireBaseTry" />
         <activity android:name=".profile"></activity>
         <activity android:name=".HomePage"></activity>
     </application>
