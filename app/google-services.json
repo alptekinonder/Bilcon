@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "956619082373",
+    "firebase_url": "https://bilconnect-c2053.firebaseio.com",
+    "project_id": "bilconnect-c2053",
+    "storage_bucket": "bilconnect-c2053.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956619082373:android:0fd97209b7fa26a2",
+        "android_client_info": {
+          "package_name": "com.example.alptekin.bilconnectt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956619082373-htc3puqmsm3iu6v8clsaf0n1h6t93j9k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alptekin.bilconnectt",
+            "certificate_hash": "23c5172a650079f39e42c1f3081dbb7ade58eca1"
+          }
+        },
+        {
+          "client_id": "956619082373-te23saasl2io9f30cnoma94gcuetstj4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwNQm2g478a36R_t5p7fHGyExMbqz41uA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956619082373-te23saasl2io9f30cnoma94gcuetstj4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

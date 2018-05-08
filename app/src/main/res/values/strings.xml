@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BilConnectt</string>
+
+    <string-array name="annoucements">
+        <item>"armut"</item>
+        <item>"elma"</item>
+        <item>"mahmut"</item>
+    </string-array>
+
+    <string-array name="View">
+        <item>"5View"</item>
+        <item>"6view"</item>
+        <item>"priceless"</item>
+    </string-array>
+    <string-array name="description">
+        <item>"just a armut and being an armut does not mean being stupid"</item>
+        <item>"just a elma and being an armut does not mean being stupid"</item>
+        <item>"only mahmut and being an armut does not mean being stupidAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"</item>
+    </string-array>
+</resources>
