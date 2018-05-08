@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/bilcon_dark_blue"
         android:minHeight="?attr/actionBarSize"
         android:paddingBottom="10dp"
         android:theme="?attr/actionBarTheme"
@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toStartOf="@+id/searchView"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/arrow" />
+        app:srcCompat="@drawable/bilcon" />
 
     <SearchView
         android:id="@+id/searchView"
@@ -61,7 +61,7 @@
         android:layout_height="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/aqua"
+        android:background="@drawable/round_corner"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar">
@@ -74,7 +74,7 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginTop="8dp"
-        android:gravity="bottom"
+        android:gravity="bottom|end"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,14 +91,14 @@
             android:layout_marginBottom="0dp"
             android:layout_marginLeft="0dp"
             android:layout_weight="1"
-            android:background="@color/purple"
+            android:background="@color/bilcon_light_blue"
             android:contentDescription="TODO"
             android:cropToPadding="false"
             android:scaleType="fitXY"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@+id/profileButton"
-            app:srcCompat="@android:drawable/progress_horizontal"
+            app:srcCompat="@drawable/order_white"
             tools:layout_editor_absoluteX="-10dp" />
 
         <ImageButton
@@ -108,14 +108,14 @@
             android:layout_marginBottom="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:background="@color/purplebest"
+            android:background="@color/bilcon_medium_blue"
             android:contentDescription="TODO"
             android:cropToPadding="false"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabHost2"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@android:drawable/ic_notification_overlay"
+            app:srcCompat="@drawable/profile_white"
             tools:layout_editor_absoluteX="114dp" />
 
         <ImageButton
@@ -123,11 +123,11 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@color/bilcon_dark_blue"
             android:contentDescription="TODO"
             android:cropToPadding="false"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/circle_button"
+            app:srcCompat="@drawable/editing_pen"
             tools:layout_editor_absoluteX="128dp"
             tools:layout_editor_absoluteY="443dp" />
 
@@ -139,14 +139,14 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:background="@drawable/arrow"
+            android:background="@color/bilcon_medium_blue"
             android:cropToPadding="false"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/newPostButton"
             app:layout_constraintTop_toBottomOf="@+id/tabHost2"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/denemeround" />
+            app:srcCompat="@drawable/settings" />
 
         <ImageButton
             android:id="@+id/notificationsButton"
@@ -155,7 +155,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@color/bilcon_light_blue"
             android:contentDescription="TODO"
             android:cropToPadding="false"
             android:scaleType="fitXY"
@@ -164,7 +164,7 @@
             app:layout_constraintStart_toEndOf="@+id/settingsButton"
             app:layout_constraintTop_toBottomOf="@+id/tabHost2"
             app:layout_constraintVertical_bias="0.973"
-            app:srcCompat="@android:drawable/presence_busy" />
+            app:srcCompat="@drawable/bell" />
 
 
     </LinearLayout>
@@ -175,9 +175,12 @@
         android:layout_height="429dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="60dp" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 
 </android.support.constraint.ConstraintLayout>
