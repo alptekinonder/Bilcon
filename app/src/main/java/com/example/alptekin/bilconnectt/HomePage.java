@@ -36,9 +36,6 @@ public class HomePage extends AppCompatActivity {
     private List<Announcement> announcementsList;
     private AnnouncementsListAdapter announcementsListAdapter;
 
-    announcementsFragment announcementsFragment = new announcementsFragment();
-    FragmentManager fragmentManager = getFragmentManager();
-    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 
 
@@ -47,12 +44,12 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
-
+        /*Bu kısım bitecek salı akşamına, takılmayın
         announcementsFragment announcementsFragment = new announcementsFragment();
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-     //   fragmentTransaction.add(R.id.,announcementsFragment );
-
+        //fragmentTransaction.add(R.id.tabcontent,announcementsFragment );
+*/
 
         sortingButton = (ImageButton) findViewById(R.id.sortingButton);
         profileButton = (ImageButton) findViewById(R.id.profileButton);
@@ -60,18 +57,7 @@ public class HomePage extends AppCompatActivity {
         settingsButton = (ImageButton) findViewById(R.id.settingsButton);
         notificationsButton = (ImageButton) findViewById(R.id.notificationsButton);
 
-        // this code piece activates the using of tab host container
-        /**
-         tabHost = (TabHost) findViewById(R.id.tabHost);
-         tabHost.setup();
-         announcementsTab = tabHost.newTabSpec("AnnouncementsTag");
-         announcementsTab.setIndicator("ANNOUNCEMENTS");
-         announcementsTab.setContent(R.id.announcements);
-         tabHost.addTab(announcementsTab);
-         complaintBoxTab = tabHost.newTabSpec("ComplaintBoxTag");
-         complaintBoxTab.setIndicator("COMPLAINT BOX");
-         complaintBoxTab.setContent(R.id.complaintBox);
-         tabHost.addTab(complaintBoxTab);*/
+
 
         announcementsList = new ArrayList<>();
         firebaseFirestore = FirebaseFirestore.getInstance();

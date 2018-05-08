@@ -21,7 +21,7 @@ public class Login extends Activity {
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go = new Intent(Login.this,Announcements.class);
+                Intent go = new Intent(Login.this,HomePage.class);
                 startActivity(go);
             }
         });

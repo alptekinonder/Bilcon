@@ -230,7 +230,7 @@
                                                         int temp = Integer.parseInt(newPostId) + 1;
                                                         firebaseFirestore.collection("index").document(""+ post).update( "index" ,temp+ "");
                                                         Toast.makeText(NewPost.this, "Announcement was added", Toast.LENGTH_LONG).show();
-                                                        Intent mainIntent = new Intent(NewPost.this, Announcements.class);
+                                                        Intent mainIntent = new Intent(NewPost.this, HomePage.class);
                                                         startActivity(mainIntent);
                                                         finish();
                                                 }
@@ -239,7 +239,7 @@
                                                 public void onFailure(@NonNull Exception e) {
                                                     Toast.makeText(NewPost.this, "Sorry an error Occured", Toast.LENGTH_LONG).show();
                                                     Log.d(TAG, e.toString());
-                                                    Intent mainIntent = new Intent(NewPost.this, Announcements.class);
+                                                    Intent mainIntent = new Intent(NewPost.this, HomePage.class);
                                                     startActivity(mainIntent);
                                                     finish();
                                                 }
@@ -278,7 +278,7 @@
                                 int temp = Integer.parseInt(newPostId) + 1;
                                 firebaseFirestore.collection("index").document("" + post).update( "index" ,temp+ "");
                                 Toast.makeText(NewPost.this, "Announcement was added", Toast.LENGTH_LONG).show();
-                                Intent mainIntent = new Intent(NewPost.this, Announcements.class);
+                                Intent mainIntent = new Intent(NewPost.this, HomePage.class);
                                 startActivity(mainIntent);
                                 finish();
                             }
@@ -287,7 +287,7 @@
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(NewPost.this, "Sorry an error Occured", Toast.LENGTH_LONG).show();
                                 Log.d(TAG, e.toString());
-                                Intent mainIntent = new Intent(NewPost.this, Announcements.class);
+                                Intent mainIntent = new Intent(NewPost.this, HomePage.class);
                                 startActivity(mainIntent);
                                 finish();
                             }
