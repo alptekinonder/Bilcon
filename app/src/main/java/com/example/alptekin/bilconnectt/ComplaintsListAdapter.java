@@ -13,8 +13,8 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
-public class ComplaintsListAdapter extends RecyclerView.Adapter<ComplaintsListAdapter.ViewHolder>// BU KODDA HATALI YERLER VAR ELİFE SORUNCA
-{                                                                                               //  DÜZELTİLECEK. ÇALIŞMASINI BEKLEMEYİN
+public class ComplaintsListAdapter extends RecyclerView.Adapter<ComplaintsListAdapter.ViewHolder>// BU KODDA HATALI YER VAR DÜZELECEK
+{
     private List<Complaint> complaintList;
     private Context context;
 
@@ -38,17 +38,19 @@ public class ComplaintsListAdapter extends RecyclerView.Adapter<ComplaintsListAd
             complaintTitle = (TextView) view.findViewById(R.id.complaint_title);
             complaintDescription = (TextView) view.findViewById(R.id.complaint_description);
             timeElapsed = (TextView) view.findViewById(R.id.time_elapsed);
-            //complaintViewCount = (TextView) view.findViewById(R.id.comp_view_image);------------------------------1
-            //voteCount =  (TextView) view.findViewById(R.id.comp_view_count);--------------------------------------2
+            complaintViewCount = (TextView) view.findViewById(R.id.view_image);
+            voteCount =  (TextView) view.findViewById(R.id.vote_count);
         }
 
         public void setComplaintImage( String thumbUri)
         {
             complaintImage =  (ImageView) view.findViewById(R.id.complaint_image);
             RequestOptions requestOptions = new RequestOptions();
-            //requestOptions.placeholder(R.layout.complaint_row);--------------------------------------------------3
+            requestOptions.placeholder( +R.layout.complaint_row); // BURAYI DEĞİŞTİRDİM KODU KABUL ETTİ ANCAK İSTEDİĞİMİZ GİBİ OLMAZSA GÖZDEN GEÇİR
+
+            //requestOptions.placeholder(R.layout.complaint_row);--------------------------------------------------1
             Glide.with(context).applyDefaultRequestOptions(requestOptions).load(thumbUri).into(complaintImage);
-            //thumbnail(Glide.with(context).load(thumbUri)).-------------------------------------------------------4
+            //thumbnail(Glide.with(context).load(thumbUri)).-------------------------------------------------------2-----??????????
         }
 
 

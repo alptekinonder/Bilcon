@@ -3,7 +3,9 @@ package com.example.alptekin.bilconnectt;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageButton;
 
 import android.os.Bundle;
@@ -87,6 +89,25 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( HomePage.this, SettingsActivity.class);
+                startActivity( intent);
+                finish();
+            }
+        });
+
+        newPostButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( HomePage.this, NewPost.class);
+                startActivity( intent);
+                finish();
+            }
+        });
+
 
     }
 }
