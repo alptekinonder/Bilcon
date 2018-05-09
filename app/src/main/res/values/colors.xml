@@ -23,4 +23,5 @@
     <color name="purplebest">#e410e4</color>
     <color name="trans">#00000000 </color>
     <color name="background">#f2f7ff </color>
+    <color name="ActionBar">#01144f</color>
 </resources>
