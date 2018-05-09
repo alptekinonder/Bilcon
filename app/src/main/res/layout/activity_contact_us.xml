@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactUs"
+    android:background="@color/contact_us_background_color">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tlBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#1A237E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="75sp"
+        android:layout_height="50sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="#1A237E"
+        android:cropToPadding="true"
+        android:src="@drawable/arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/backButton"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="8dp"
+        android:background="#1A237E"
+        android:text="Send"
+        android:textColor="#FAFAFA"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/send_it"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/send_it"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_alignBottom="@+id/tlBar"
+        android:layout_alignEnd="@+id/details_text"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:background="#1A237E"
+        android:src="@drawable/paper_plane"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/topic_text"
+        android:layout_width="350sp"
+        android:layout_height="80sp"
+        android:layout_below="@+id/tlBar"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#F1F8E9"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#424242"
+        android:hint="Header/Topic(max 32 character)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tlBar" />
+
+    <EditText
+        android:id="@+id/details_text"
+        android:layout_width="350sp"
+        android:layout_height="255dp"
+        android:layout_alignStart="@+id/backButton"
+        android:layout_below="@+id/topic_text"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#F1F8E9"
+        android:gravity="top"
+        android:hint="Details"
+        android:textColor="#424242"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topic_text" />
+
+    <TextView
+        android:id="@+id/contact_us_note"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/ContactUsText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_text" />
+
+
+</android.support.constraint.ConstraintLayout>
