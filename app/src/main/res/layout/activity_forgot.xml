@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForgotActivity">
+
+    <ImageView
+        android:id="@+id/forgot_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Background"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/forgot_logo"
+        android:layout_width="187dp"
+        android:layout_height="167dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="Logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/bilcon_logo"
+        app:layout_constraintEnd_toEndOf="@+id/forgot_background"
+        app:layout_constraintStart_toStartOf="@+id/forgot_background"
+        app:layout_constraintTop_toTopOf="@+id/forgot_background" />
+
+
+    <ImageView
+        android:id="@+id/forgot_box"
+        android:layout_width="293dp"
+        android:layout_height="291dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="whiteBox"
+        app:layout_constraintEnd_toEndOf="@+id/forgot_background"
+        app:layout_constraintStart_toStartOf="@+id/forgot_background"
+        app:layout_constraintTop_toBottomOf="@+id/forgot_logo"
+        app:srcCompat="@drawable/box" />
+
+    <ImageView
+        android:id="@+id/dontWorry"
+        android:layout_width="271dp"
+        android:layout_height="85dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="hiThere"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/forgot_email"
+        app:layout_constraintEnd_toEndOf="@+id/forgot_box"
+        app:layout_constraintStart_toStartOf="@+id/forgot_box"
+        app:layout_constraintTop_toTopOf="@+id/forgot_box"
+        app:srcCompat="@drawable/dontworry" />
+
+    <ImageView
+        android:id="@+id/forgot_email"
+        android:layout_width="279dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="email_description"
+        app:layout_constraintBottom_toTopOf="@id/forgot_send"
+        app:layout_constraintEnd_toEndOf="@+id/forgot_box"
+        app:layout_constraintStart_toStartOf="@+id/forgot_box"
+        app:layout_constraintTop_toBottomOf="@+id/dontWorry"
+        app:layout_constraintVertical_bias="0.181"
+        app:srcCompat="@drawable/id" />
+
+    <EditText
+        android:id="@+id/forgot_yourEmail"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/forgot_email"
+        app:layout_constraintEnd_toEndOf="@+id/forgot_email"
+        app:layout_constraintStart_toStartOf="@+id/forgot_email"
+        app:layout_constraintTop_toTopOf="@+id/forgot_email" />
+
+    <Button
+        android:id="@+id/forgot_send"
+        android:layout_width="144dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="#001d58"
+        android:contentDescription="register"
+        android:scaleType="fitCenter"
+        android:text="SEND"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/forgot_box"
+        app:layout_constraintEnd_toEndOf="@+id/forgot_box"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/forgot_box"
+        app:layout_constraintTop_toBottomOf="@+id/reg_email" />
+
+
+    <Button
+        android:id="@+id/forgot_go_Back"
+        android:layout_width="65dp"
+        android:layout_height="39dp"
+        android:background="@drawable/back"
+        app:layout_constraintStart_toStartOf="@+id/forgot_background"
+        app:layout_constraintTop_toTopOf="@+id/forgot_background" />
+
+    <ProgressBar
+        android:id="@+id/forgot_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        app:layout_constraintEnd_toEndOf="@+id/forgot_background"
+        app:layout_constraintStart_toStartOf="@+id/forgot_background"
+        app:layout_constraintTop_toTopOf="@+id/forgot_background" />
+</android.support.constraint.ConstraintLayout>

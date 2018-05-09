@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/reg_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Background"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/reg_logo"
+        android:layout_width="187dp"
+        android:layout_height="167dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="Logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/bilcon_logo"
+        app:layout_constraintEnd_toEndOf="@+id/reg_background"
+        app:layout_constraintStart_toStartOf="@+id/reg_background"
+        app:layout_constraintTop_toTopOf="@+id/reg_background" />
+
+    <ImageView
+        android:id="@+id/reg_box"
+        android:layout_width="293dp"
+        android:layout_height="291dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="whiteBox"
+        app:layout_constraintEnd_toEndOf="@+id/reg_background"
+        app:layout_constraintStart_toStartOf="@+id/reg_background"
+        app:layout_constraintTop_toBottomOf="@+id/reg_logo"
+        app:srcCompat="@drawable/box" />
+
+    <ImageView
+        android:id="@+id/reg_email"
+        android:layout_width="279dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="email_description"
+        app:layout_constraintBottom_toTopOf="@+id/reg_password"
+        app:layout_constraintEnd_toEndOf="@+id/reg_box"
+        app:layout_constraintStart_toStartOf="@+id/reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/reg_get_started"
+        app:layout_constraintVertical_bias="0.181"
+        app:srcCompat="@drawable/id" />
+
+    <ImageView
+        android:id="@+id/reg_password"
+        android:layout_width="279dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="password_description"
+        app:layout_constraintEnd_toEndOf="@+id/reg_box"
+        app:layout_constraintStart_toStartOf="@+id/reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/reg_yourEmail"
+        app:layout_constraintBottom_toTopOf="@+id/reg_confirmPassword"
+        app:srcCompat="@drawable/password" />
+
+    <ImageView
+        android:id="@+id/reg_confirmPassword"
+        android:layout_width="279dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="password_description"
+        app:layout_constraintBottom_toTopOf="@+id/reg_register"
+        app:layout_constraintEnd_toEndOf="@+id/reg_box"
+        app:layout_constraintStart_toStartOf="@+id/reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/reg_password"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/password" />
+
+    <Button
+        android:id="@+id/reg_register"
+        android:layout_width="97dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="#001d58"
+        android:contentDescription="register"
+        android:scaleType="fitCenter"
+        android:text="Register"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        app:layout_constraintBottom_toBottomOf="@+id/reg_box"
+        app:layout_constraintEnd_toEndOf="@+id/reg_box"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/reg_confirmPassword" />
+
+    <EditText
+        android:id="@+id/reg_yourEmail"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/reg_email"
+        app:layout_constraintEnd_toEndOf="@+id/reg_email"
+        app:layout_constraintStart_toStartOf="@+id/reg_email"
+        app:layout_constraintTop_toTopOf="@+id/reg_email" />
+
+    <EditText
+        android:id="@+id/reg_yourPass"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        android:hint="Password"
+        app:layout_constraintBottom_toBottomOf="@+id/reg_password"
+        app:layout_constraintEnd_toEndOf="@+id/reg_password"
+        app:layout_constraintStart_toStartOf="@+id/reg_password"
+        app:layout_constraintTop_toTopOf="@+id/reg_password" />
+
+    <EditText
+        android:id="@+id/reg_confirmPass"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/reg_confirmPassword"
+        app:layout_constraintEnd_toEndOf="@+id/reg_confirmPassword"
+        app:layout_constraintStart_toStartOf="@+id/reg_confirmPassword"
+        app:layout_constraintTop_toTopOf="@+id/reg_confirmPassword"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ProgressBar
+        android:id="@+id/reg_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        app:layout_constraintEnd_toEndOf="@+id/reg_background"
+        app:layout_constraintStart_toStartOf="@+id/reg_background"
+        app:layout_constraintTop_toTopOf="@+id/reg_background" />
+
+    <ImageView
+        android:id="@+id/reg_get_started"
+        android:layout_width="264dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="get_started"
+        app:layout_constraintBottom_toTopOf="@+id/reg_yourEmail"
+        app:layout_constraintEnd_toEndOf="@+id/reg_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/reg_box"
+        app:layout_constraintTop_toTopOf="@+id/reg_box"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/get_started" />
+
+    <ImageView
+        android:id="@+id/reg_verification_text"
+        android:layout_width="315dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="verification text"
+        app:layout_constraintEnd_toEndOf="@id/reg_background"
+        app:layout_constraintStart_toStartOf="@id/reg_background"
+        app:layout_constraintTop_toBottomOf="@+id/reg_box"
+        app:srcCompat="@drawable/a_confirmation" />
+
+    <Button
+        android:id="@+id/reg_go_Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="@+id/reg_background"
+        app:layout_constraintTop_toTopOf="@+id/reg_background" />
+</android.support.constraint.ConstraintLayout>
