@@ -72,27 +72,27 @@ public class SettingsActivity extends Activity {
         settings_go_aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent goAboutUs = new Intent( Settings.this, AboutUs.class);
-                //startActivity( goAboutUs);
-                //finish();
+                Intent goAboutUs = new Intent( SettingsActivity.this, AboutUs.class);
+                startActivity( goAboutUs);
+                finish();
             }
         });
 
         settings_goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent goBack = new Intent( Settings.this, HomePage.class);
-                //startActivity( goBack);
-                //finish();
+                Intent goBack = new Intent( SettingsActivity.this, HomePage.class);
+                startActivity( goBack);
+                finish();
             }
         });
 
         settings_go_contactUs.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent goContactUs = new Intent( Settings.this, ContactUs.class);
-                //startActivity( goContactUs);
-                //finish();
+                Intent goContactUs = new Intent( SettingsActivity.this, ContactUs.class);
+                startActivity( goContactUs);
+                finish();
             }
         });
 

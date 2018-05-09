@@ -18,5 +18,5 @@
         <item>"only mahmut and being an armut does not mean being stupidAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"</item>
     </string-array>
     <string name="about_us">We are a group of 6 developers. Our aim is to increase the connection among bilkenters by making their communicartion easier. Due to this purpose, we are hoping to make a platform which will help bilkenters to raise awarenessabout their problems in Bilkent University and announce about Bilkent, whatever they want to ask or announce.</string>
-
+    <string name="ContactUsText">We will return you by sending you an email as soon as possible</string>
 </resources>

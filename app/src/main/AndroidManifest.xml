@@ -31,7 +31,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ForgotActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".AboutUs" />
+        <activity android:name=".ContactUs" />
+        <activity android:name=".ComplaintsListAdapter"></activity>
     </application>
 
 </manifest>

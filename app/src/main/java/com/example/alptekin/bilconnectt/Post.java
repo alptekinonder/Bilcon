@@ -75,4 +75,13 @@ public class Post {
     public void setView_number(String view_number) {
         this.view_number = view_number;
     }
+
+    public String getMiniDescription(){
+        if( description.length() <= 140){
+            return description;
+        }
+        else{
+            return description.substring( 0,137) + "...";
+        }
+    }
 }
