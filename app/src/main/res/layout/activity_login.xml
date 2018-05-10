@@ -24,6 +24,7 @@
         android:layout_marginTop="8dp"
         android:contentDescription="Logo"
         android:scaleType="fitCenter"
+        android:onClick="helper"
         android:src="@drawable/bilcon_logo"
         app:layout_constraintEnd_toEndOf="@+id/login_background"
         app:layout_constraintStart_toStartOf="@+id/login_background"
@@ -177,8 +178,6 @@
         app:layout_constraintEnd_toEndOf="@+id/login_background"
         app:layout_constraintStart_toStartOf="@+id/login_background"
         app:layout_constraintTop_toTopOf="@+id/login_background" />
-
-
 
 
 </android.support.constraint.ConstraintLayout>

@@ -4,6 +4,7 @@ package com.example.alptekin.bilconnectt;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,7 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private Button login_registerBtn;
     private Button login_forgotBtn;
-
+    private Button login_EasterEgg;
+    private int count = 0;
     private FirebaseAuth mAuth;
 
     private ProgressBar loginProgress;
@@ -52,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
         login_registerBtn = ( Button ) findViewById( R.id.login_register);
         login_forgotBtn   = ( Button ) findViewById( R.id.login_forgot);
         loginProgress     = ( ProgressBar ) findViewById( R.id.login_progress);
-
         /*
         When clicked takes you to the registration page.
          */
@@ -61,9 +62,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-
-                Intent regIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(regIntent);
+                Intent intent = new Intent( LoginActivity.this, RegisterActivity.class);
+                startActivity( intent);
                 finish();
             }
         });
@@ -104,9 +104,9 @@ public class LoginActivity extends AppCompatActivity {
         login_forgotBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent( LoginActivity.this, ForgotActivity.class);
-                //startActivity( intent);
-                //finish();
+                Intent intent = new Intent( LoginActivity.this, ForgotActivity.class);
+                startActivity( intent);
+                finish();
             }
         });
     }
@@ -115,21 +115,7 @@ public class LoginActivity extends AppCompatActivity {
      * This method gets called when the application first started and if this activity is active at the moment.
      * Checks if use is looged in acts accordingly.
      */
-    @Override
-    protected void onStart()
-    {
-        super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if ( currentUser != null)
-        {
-            sendToMain();
-        }
-        else
-        {
-
-        }
-    }
 
     /*
      *  Helper method to send user to the main activity.
@@ -150,5 +136,22 @@ public class LoginActivity extends AppCompatActivity {
         } catch (Exception e) {
             return false;
         }
+    }
+    public void helper(View view){
+        easterEgg();
+    }
+    public void easterEgg(){
+        if(count >= 5)
+        {
+            Toast.makeText(LoginActivity.this, "You did it!", Toast.LENGTH_LONG).show();
+            Intent viewIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=AzLcDo4Wpbs"));
+            startActivity(viewIntent);
+        }
+        if(count >= 3 )
+        {
+            Toast.makeText(LoginActivity.this, "Almost There!", Toast.LENGTH_LONG).show();
+        }
+        count++;
+
     }
 }

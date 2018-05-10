@@ -1,9 +1,13 @@
     package com.example.alptekin.bilconnectt;
 
+    import android.Manifest;
     import android.content.Intent;
+    import android.content.pm.PackageManager;
     import android.graphics.Bitmap;
     import android.net.Uri;
     import android.support.annotation.NonNull;
+    import android.support.v4.app.ActivityCompat;
+    import android.support.v4.content.ContextCompat;
     import android.support.v7.app.AppCompatActivity;
     import android.os.Bundle;
     import android.text.TextUtils;
@@ -11,6 +15,7 @@
     import android.view.View;
     import android.widget.Button;
     import android.widget.EditText;
+    import android.widget.ImageButton;
     import android.widget.Toast;
 
     import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,26 +39,28 @@
 
     import id.zelory.compressor.Compressor;
 
+    import static android.Manifest.permission_group.STORAGE;
+
     public class NewPost extends AppCompatActivity {
-        public static String post = "Announcement";
-        public static String newPostId;
+        public static String    post = "Announcement";
+        public static String    newPostId;
         public static final String TAG = "NewPost_Error";
-        private Button chooseImage;
-        private boolean compAnnonTouch = false;//this boolean will show which button is touched, compalints or announceents
-        private Button announcementsButton;
-        private Button complaintsButton;
-        private EditText topic;
-        private EditText description;
-        private Button sendData;
-        private Uri postImageUri;
-        private FirebaseAuth firebaseAuth;
+        private ImageButton     chooseImage;
+        private boolean         compAnnonTouch = false;//this boolean will show which button is touched, compalints or announceents
+        private Button          announcementsButton;
+        private Button          complaintsButton;
+        private EditText        topic;
+        private EditText        description;
+        private ImageButton     sendData;
+        private Uri             postImageUri;
+        private FirebaseAuth    firebaseAuth;
         private String currentdate = DateFormat.getDateInstance().format(new Date());
-        private Button delete;
 
+        private static final int PERMISSION_REQUEST_READ_EXTERNAL_STORAGE = 0;
 
-        private String current_user_id;
-        private Bitmap compressedImageFile;
-        private StorageReference storageReference;
+        private String            current_user_id;
+        private Bitmap            compressedImageFile;
+        private StorageReference  storageReference;
         private FirebaseFirestore firebaseFirestore;
 
         @Override
@@ -64,26 +71,20 @@
             firebaseFirestore = FirebaseFirestore.getInstance();
             firebaseAuth = FirebaseAuth.getInstance();
             //I do not have login part so i have to give a user id directly for now, delete the user part and code will work for any user
-            current_user_id = "9rbiBB3Vl9cfI200I5eutY2vkC32";//firebaseAuth.getCurrentUser().getUid();
+            //current_user_id = "9rbiBB3Vl9cfI200I5eutY2vkC32";//
+            current_user_id = firebaseAuth.getCurrentUser().getUid();
 
 
             // DocumentSnapshot
             //getting data from database(complaints)
 
-            description = findViewById(R.id.descriptionNew);
-            topic = findViewById(R.id.topicNew);
+            description = findViewById(R.id.topic_text);
+            topic = findViewById(R.id.details_text);
 
-            delete = (Button) findViewById(R.id.delete);
-            delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    firebaseFirestore.collection("Announcements").document("2").delete();
-                }
-            });
 
 
             //if user touches announcements button, he can create an announcement
-            announcementsButton = (Button) findViewById(R.id.AnnouncementsButton);
+            announcementsButton = (Button) findViewById(R.id.comp_opt);
             announcementsButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -92,7 +93,7 @@
                 }
             });
             //if user touches complaints button, he can create a complaint
-            complaintsButton = (Button) findViewById(R.id.ComplaintsButton);
+            complaintsButton = (Button) findViewById(R.id.announ_opt);
             complaintsButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -102,23 +103,33 @@
             });
 
 
-            chooseImage = (Button) findViewById(R.id.UploadImage);
+            chooseImage = (ImageButton) findViewById(R.id.upload_im2);
             //choosing image with Crop Image Library
             chooseImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 //upload image part, use cropImage Library
-
                 public void onClick(View view) {
-                    CropImage.activity()
-                            .setGuidelines(CropImageView.Guidelines.ON)
-                            .setMinCropResultSize(512, 512)
-                            .setAspectRatio(1, 1)
-                            .start(NewPost.this);
+                    //if ( ContextCompat.checkSelfPermission( this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_DENIED) {
+                        // Permission is not granted
+                    //    requestPermissions( this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.)
+                    //}
 
+                    int permissionCheckWriteExternalStorage = ContextCompat.checkSelfPermission(NewPost.this, Manifest.permission.READ_EXTERNAL_STORAGE);
+                    if (permissionCheckWriteExternalStorage != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(NewPost.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_READ_EXTERNAL_STORAGE);
+                    }
+                    if (permissionCheckWriteExternalStorage == PackageManager.PERMISSION_GRANTED) {
+
+                        CropImage.activity()
+                                .setGuidelines(CropImageView.Guidelines.ON)
+                                .setMinCropResultSize(512, 512)
+                                .setAspectRatio(1, 1)
+                                .start(NewPost.this);
+                    }
                 }
             });
 
-            sendData = (Button) findViewById(R.id.SendData);
+            sendData = (ImageButton) findViewById(R.id.post_it);
             //sending post to FireBaseStore
             sendData.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -128,8 +139,11 @@
                     firebaseFirestore.collection("index").document(post).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            if(documentSnapshot.exists())
+                            if(documentSnapshot.exists()){
                                 newPostId = documentSnapshot.getString("index");
+                                Log.d(TAG, "Aaaaaaaaaaaaaaaaaa" + newPostId);
+                                //newPostId = documentSnapshot.getString("index");
+                            }
                             else{
                                 Toast.makeText(NewPost.this, "Document was not found", Toast.LENGTH_LONG).show();
                             }
@@ -268,8 +282,8 @@
                             post = "Announcements";
                             newPost = new Announcement(topicNew,desc,current_user_id,"","", currentdate);
                         }
-
-                        firebaseFirestore.collection(post).document(newPostId).set(newPost).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        newPostId = "13";
+                        firebaseFirestore.collection(newPostId).document(post).set(newPostId).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 int temp = Integer.parseInt(newPostId) + 1;
@@ -313,4 +327,23 @@
             }
 
         }
+
+        @Override
+        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            if ((requestCode == PERMISSION_REQUEST_READ_EXTERNAL_STORAGE)) {
+                if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    // Permission granted. Restart application
+                    Intent intent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                } else {
+                    // Permission denied. Close application
+                    finish();
+                }
+            }
+        }
+
+
     }

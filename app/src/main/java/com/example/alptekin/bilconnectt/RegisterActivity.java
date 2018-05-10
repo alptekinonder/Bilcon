@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
     {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_register );
-
+        mAuth = FirebaseAuth.getInstance();
         reg_email = ( EditText ) findViewById( R.id.reg_yourEmail );
         reg_password = ( EditText ) findViewById( R.id.reg_yourPass );
         reg_confirm = ( EditText ) findViewById( R.id.reg_confirmPass );
@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                             {
                                 if( task.isSuccessful() )
                                 {
-                                    sendToMain();
+                                    sendToLogin();
                                 }
                                 else
                                 {
@@ -118,6 +118,12 @@ public class RegisterActivity extends AppCompatActivity {
     {
         Intent mainIntent = new Intent( RegisterActivity.this, MainActivity.class );
         startActivity( mainIntent );
+        finish();
+    }
+
+    private void sendToLogin(){
+        Intent intent = new Intent( RegisterActivity.this, LoginActivity.class);
+        startActivity( intent);
         finish();
     }
 }
