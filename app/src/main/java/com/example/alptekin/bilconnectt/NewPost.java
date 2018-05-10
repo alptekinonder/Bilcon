@@ -67,7 +67,7 @@
             current_user_id = "9rbiBB3Vl9cfI200I5eutY2vkC32";//firebaseAuth.getCurrentUser().getUid();
 
 
-           // DocumentSnapshot
+            // DocumentSnapshot
             //getting data from database(complaints)
 
             description = findViewById(R.id.descriptionNew);
@@ -80,8 +80,6 @@
                     firebaseFirestore.collection("Announcements").document("2").delete();
                 }
             });
-
-
 
 
             //if user touches announcements button, he can create an announcement
@@ -126,27 +124,26 @@
                 @Override
                 public void onClick(View v) {
                     //getting an id for the post
-                        //getting the last index of announcement/complaint, so we can give the new post a proper id
-                        firebaseFirestore.collection("index").document("Announcements").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                            @Override
-                            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                if(documentSnapshot.exists())
+                    //getting the last index of announcement/complaint, so we can give the new post a proper id
+                    firebaseFirestore.collection("index").document(post).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            if(documentSnapshot.exists())
                                 newPostId = documentSnapshot.getString("index");
-                                else{
-                                    Toast.makeText(NewPost.this, "Document was not found", Toast.LENGTH_LONG).show();
-                                }
+                            else{
+                                Toast.makeText(NewPost.this, "Document was not found", Toast.LENGTH_LONG).show();
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.d(TAG, e.toString());
-                            }
-                        });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d(TAG, e.toString());
+                        }
+                    });
 
                     final String desc = description.getText().toString();
                     final String topicNew = topic.getText().toString();
                     if(!TextUtils.isEmpty(desc) && !TextUtils.isEmpty(topicNew) &&postImageUri != null){
-
 
 
                         // PHOTO UPLOAD
@@ -227,12 +224,12 @@
                                             firebaseFirestore.collection(post).document(newPostId).set(newPost).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void aVoid) {
-                                                        int temp = Integer.parseInt(newPostId) + 1;
-                                                        firebaseFirestore.collection("index").document(""+ post).update( "index" ,temp+ "");
-                                                        Toast.makeText(NewPost.this, "Announcement was added", Toast.LENGTH_LONG).show();
-                                                        Intent mainIntent = new Intent(NewPost.this, HomePage.class);
-                                                        startActivity(mainIntent);
-                                                        finish();
+                                                    int temp = Integer.parseInt(newPostId) + 1;
+                                                    firebaseFirestore.collection("index").document(""+ post).update( "index" ,temp + "");
+                                                    Toast.makeText(NewPost.this, "Announcement was added", Toast.LENGTH_LONG).show();
+                                                    Intent mainIntent = new Intent(NewPost.this, HomePage.class);
+                                                    startActivity(mainIntent);
+                                                    finish();
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
@@ -262,7 +259,7 @@
                     else if(!TextUtils.isEmpty(desc) && !TextUtils.isEmpty(topicNew)){
                         Post newPost = new Announcement(topicNew,desc,current_user_id,"","", currentdate);
 
-                       // final String post;
+                        // final String post;
                         if(compAnnonTouch){
                             post = "Complaints";
                             newPost = new Complaint(topicNew,desc,current_user_id,"","", currentdate);

@@ -33,7 +33,8 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".AboutUs" />
         <activity android:name=".ContactUs" />
-        <activity android:name=".ComplaintsListAdapter"></activity>
+        <activity android:name=".LoginActivity"/>
+
     </application>
 
 </manifest>

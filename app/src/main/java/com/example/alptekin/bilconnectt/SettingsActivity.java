@@ -108,7 +108,7 @@ public class SettingsActivity extends Activity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                Intent intent = new Intent( SettingsActivity.this, LoginActivity.class);
+                Intent intent = new Intent( SettingsActivity.this, MainActivity.class);
                 startActivity( intent);
                 finish();
             }
