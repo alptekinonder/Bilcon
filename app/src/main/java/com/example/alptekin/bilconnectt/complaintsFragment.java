@@ -64,9 +64,10 @@ public class complaintsFragment extends Fragment {
                         String cNumberOfUpVotes = doc.getDocument().getString("numberOfUpVotes");
                         String cUserId = doc.getDocument().getString("user_id");
 
-
+                        String postId = doc.getDocument().getString("postId");
+                        String profileThumb = doc.getDocument().getString("profileThumbnail");
                         //Log.d(TAG, complaint.getTopic());
-                        complaintsList.add( new Complaint(cTopic, cDescription, cUserId, cImageThumb, cImageUrl, cDate));
+                        complaintsList.add( new Complaint(cTopic, cDescription, cUserId, cImageThumb, cImageUrl, cDate, postId, profileThumb));
                     }
                 }
 

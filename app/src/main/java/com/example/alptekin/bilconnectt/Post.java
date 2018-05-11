@@ -12,17 +12,33 @@ public class Post {
     private String image_url;
     private String date;
     private String view_number;
+    private String postId;
+    private String profileThumbnail;
     public Post(){
         //need empty constructor for FireStore Database
     }
-    public Post(String topic, String Description, String user_id){
+    public Post(String topic, String Description, String user_id, String postId, String profileThumbnail){
         this.topic = topic;
         this.user_id = user_id;
         this.description = Description;
+        this.postId = postId;
+        this.profileThumbnail = profileThumbnail;
         view_number = "0";
         image_thumb = "";
         image_url = "";
 
+    }
+    public String getMiniDescription()
+    {
+        if( description != null){
+            if(description.length() <= 140)
+            {
+                return description;
+            }else {
+                return description.substring(0,137) + "...";
+            }
+        }
+        return "";
     }
     public Post(String topic, String Description, String user_id,String image_thumb,String image_url,String date){
         this.topic = topic;
@@ -76,15 +92,19 @@ public class Post {
         this.view_number = view_number;
     }
 
-    public String getMiniDescription(){
-        if( description != null){
-            if( description.length() <= 140){
-                return description;
-            }
-            else{
-                return description.substring( 0,137) + "...";
-            }
-        }
-        return "";
+    public String getPostId() {
+        return postId;
+    }
+
+    public String getProfileThumbnail() {
+        return profileThumbnail;
+    }
+
+    public void setProfileThumbnail(String profileThumbnail) {
+        this.profileThumbnail = profileThumbnail;
+    }
+
+    public void setPostId(String postId) {
+        this.postId = postId;
     }
 }

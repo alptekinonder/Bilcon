@@ -14,20 +14,20 @@ public class Announcement extends Post{
     public Announcement(){
         //need empty constructor for FireStore Database
     }
-    public Announcement(String topic, String Description, String user_id){
-        super(topic,Description,user_id);
+    public Announcement(String topic, String Description, String user_id,String postId, String profileThumbnail){
+        super(topic,Description,user_id, postId, profileThumbnail);
         comment_number = "0";
 
     }
-    public Announcement(String topic, String Description, String user_id,String image_thumb,String image_url,String date){
-        super(topic,Description,user_id);
+    public Announcement(String topic, String Description, String user_id,String image_thumb,String image_url,String date, String postId, String profileThumbnail){
+        super(topic,Description,user_id, postId, profileThumbnail);
         this.image_thumb = image_thumb;
         this.image_url = image_url;
         this.date = date;
         comment_number = "0";
     }
-    public Announcement(String topic, String Description, String user_id,String image_thumb,String image_url,String date, String comment_number){
-        super(topic,Description,user_id);
+    public Announcement(String topic, String Description, String user_id,String image_thumb,String image_url,String date, String comment_number,String postId, String profileThumbnail){
+        super(topic,Description,user_id , postId, profileThumbnail);
         this.image_thumb = image_thumb;
         this.image_url = image_url;
         this.date = date;
