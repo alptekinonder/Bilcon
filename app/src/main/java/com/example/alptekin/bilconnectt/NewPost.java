@@ -52,6 +52,8 @@
         private EditText        topic;
         private EditText        description;
         private ImageButton     sendData;
+        private ImageButton     backButton;
+
         private Uri             postImageUri;
         private FirebaseAuth    firebaseAuth;
         private String currentdate = DateFormat.getDateInstance().format(new Date());
@@ -102,6 +104,15 @@
                 }
             });
 
+            backButton = (ImageButton) findViewById( R.id.backButton);
+            backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent( NewPost.this, HomePage.class);
+                    startActivity( intent);
+                    finish();
+                }
+            });
 
             chooseImage = (ImageButton) findViewById(R.id.upload_im2);
             //choosing image with Crop Image Library

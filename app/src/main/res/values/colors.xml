@@ -24,4 +24,9 @@
     <color name="trans">#00000000 </color>
     <color name="background">#f2f7ff </color>
     <color name="contact_us_background_color">#bfc2f9</color>
+    <color name="bilcon_lilac">#bec4f8</color>
+    <color name="bilcon_dark_blue">#00154e</color>
+    <color name="bilcon_medium_blue">#0c4aff</color>
+    <color name="bilcon_light_blue">#4e7afd</color>
+    <color name="bilcon_soft_blue">#e5faff</color>
 </resources>

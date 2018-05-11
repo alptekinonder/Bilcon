@@ -23,6 +23,8 @@ public class ComplaintsListAdapter extends RecyclerView.Adapter<ComplaintsListAd
         this.complaintList = complaintList;
     }
 
+    public ComplaintsListAdapter() {}
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         View view;
         public TextView complaintTitle;
@@ -38,8 +40,8 @@ public class ComplaintsListAdapter extends RecyclerView.Adapter<ComplaintsListAd
             complaintTitle = (TextView) view.findViewById(R.id.complaint_title);
             complaintDescription = (TextView) view.findViewById(R.id.complaint_description);
             timeElapsed = (TextView) view.findViewById(R.id.time_elapsed);
-            //complaintViewCount = (TextView) view.findViewById(R.id.comp_view_image);------------------------------1
-            //voteCount =  (TextView) view.findViewById(R.id.comp_view_count);--------------------------------------2
+            complaintViewCount = (TextView) view.findViewById(R.id.view_count);
+            voteCount =  (TextView) view.findViewById(R.id.vote_count);
         }
 
         public void setComplaintImage( String thumbUri)

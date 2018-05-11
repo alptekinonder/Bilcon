@@ -77,11 +77,14 @@ public class Post {
     }
 
     public String getMiniDescription(){
-        if( description.length() <= 140){
-            return description;
+        if( description != null){
+            if( description.length() <= 140){
+                return description;
+            }
+            else{
+                return description.substring( 0,137) + "...";
+            }
         }
-        else{
-            return description.substring( 0,137) + "...";
-        }
+        return "";
     }
 }

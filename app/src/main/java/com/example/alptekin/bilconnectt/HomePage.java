@@ -4,6 +4,11 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.os.Handler;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -38,7 +43,7 @@ public class HomePage extends AppCompatActivity {
     private List<Announcement> announcementsList;
     private AnnouncementsListAdapter announcementsListAdapter;
 
-
+    private ViewPager mViewPager;
 
 
 
@@ -46,13 +51,6 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
-        /*Bu kısım bitecek salı akşamına, takılmayın
-        announcementsFragment announcementsFragment = new announcementsFragment();
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //fragmentTransaction.add(R.id.tabcontent,announcementsFragment );
-*/
-        Log.d( TAG, "Homepage e geldi");
 
 
         sortingButton = (ImageButton) findViewById(R.id.sortingButton);
@@ -61,37 +59,48 @@ public class HomePage extends AppCompatActivity {
         settingsButton = (ImageButton) findViewById(R.id.settingsButton);
         notificationsButton = (ImageButton) findViewById(R.id.notificationsButton);
 
+        //Setup the viewpager
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        setupViewPager(mViewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager((mViewPager));
 
 
-        announcementsList = new ArrayList<>();
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        announcementsListAdapter = new AnnouncementsListAdapter(announcementsList);
-
-
-        announcementsRecyclerView = (RecyclerView) findViewById(R.id.announcements_list);
-        announcementsRecyclerView.setHasFixedSize(true); // for speed purpose
-        announcementsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        announcementsRecyclerView.setAdapter(announcementsListAdapter);
-
-        //retrieving data from collection
-        firebaseFirestore.collection("Announcements").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        newPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
-                Log.d( TAG, "Firebase e girdi");
-                //if there is any error
-                if( e != null)
-                {
-                    Log.d(TAG, e.getMessage());
-                }
-                for(DocumentChange doc: documentSnapshots.getDocumentChanges())
-                {
-                    Announcement announcement = doc.getDocument().toObject(Announcement.class);
-                    Log.d(TAG, announcement.getTopic());
-                    announcementsList.add(announcement);
-                }
-
+            public void onClick(View v) {
+                Intent intent = new Intent( HomePage.this,NewPost.class);
+                startActivity(intent);
+                finish();
             }
         });
+
+
+        /**sortingButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        Intent intent = new Intent( HomePage.this,Sorting.class);
+        startActivity(intent);
+        finish();
+        }
+        });
+         profileButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        Intent intent = new Intent( HomePage.this,myProfile.class);
+        startActivity(intent);
+        finish();
+        }
+        });
+
+         notificationsButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        Intent intent = new Intent( HomePage.this,Notifiations.class);
+        startActivity(intent);
+        finish();
+        }
+        }); */
 
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,16 +110,38 @@ public class HomePage extends AppCompatActivity {
                 finish();
             }
         });
+        /**
+         mySwipeFreshLayout = (SwipeRefreshLayout) findViewById( R.id.mySwipe);
+         mySwipeFreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
 
-        newPostButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent( HomePage.this, NewPost.class);
-                startActivity( intent);
-                finish();
-            }
+        new Handler().postDelayed(new Runnable() {
+        @Override
+        public void run() {
+        //mySwipeFreshLayout.setRefreshing( false);
+        }
+        }, 4000);
+        }
         });
+         */
+    }
+    public void setupViewPager(ViewPager viewPager){
+        SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new announcementsFragment(), "ANNOUNCEMENTS");
+        adapter.addFragment(new complaintsFragment(),"COMPLAINT BOX");
+        viewPager.setAdapter(adapter);
+    }
 
+    private void refreshItems(){
 
+        //...
+
+        announcementsListAdapter = new AnnouncementsListAdapter(announcementsList);
+        announcementsRecyclerView.setAdapter(announcementsListAdapter);
+
+        //...
+
+        //   mySwipeFreshLayout.setRefreshing( false);
     }
 }
