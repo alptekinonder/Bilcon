@@ -151,7 +151,7 @@
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             if(documentSnapshot.exists()){
-                                newPostId = documentSnapshot.getString("index");
+                                //newPostId = documentSnapshot.getString("index");
                                 Log.d(TAG, "Aaaaaaaaaaaaaaaaaa" + newPostId);
                                 //newPostId = documentSnapshot.getString("index");
                             }
@@ -294,7 +294,7 @@
                             newPost = new Announcement(topicNew,desc,current_user_id,"","", currentdate);
                         }
                         newPostId = "13";
-                        firebaseFirestore.collection(newPostId).document(post).set(newPostId).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        firebaseFirestore.collection(post).document(newPostId).set(newPost).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 int temp = Integer.parseInt(newPostId) + 1;
